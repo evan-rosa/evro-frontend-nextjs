@@ -1,7 +1,7 @@
-import Footer from '../../../frontend/components/Footer.js';
-import Header from '../../../frontend/components/Header.js';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header.js';
 import { MDBPagination, MDBPageItem, MDBPageNav, MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
-import '../../../frontend/index.css';
+import '../../index.css';
 import { useRouter } from 'next/router';
 
 const ProjectBlock = () => {
