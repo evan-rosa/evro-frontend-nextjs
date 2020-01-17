@@ -2,14 +2,8 @@
   "name": "frontend",
   "version": "1.0.0",
   "description": "Evan Rosa's Portfolio",
+  "private": true,
   "main": "index.js",
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "export": "next export",
-    "start": "next start -p $PORT",
-    "heroku-postbuild": "npm run build"
-  },
   "author": "Evan Rosa",
   "license": "ISC",
   "proxy": "http://localhost:8000/",
@@ -33,5 +27,17 @@
   "devDependencies": {
     "cross-env": "^5.0.1",
     "http-proxy-middleware": "^0.20.0"
+  },
+  "engines": {
+    "node": "12.14.1",
+    "npm": "6.13.4",
+    "yarn": "1.21.1"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "export": "next export",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build"
   }
 }
