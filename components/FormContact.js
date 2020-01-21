@@ -1,5 +1,6 @@
 import { MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import Router from 'next/router'
+import Link from 'next/link';
 
 class ContactForm extends React.Component {
     constructor(props) {
