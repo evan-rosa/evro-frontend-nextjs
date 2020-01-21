@@ -3,8 +3,7 @@ import Layout from '../../components/Layout';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import axios from 'axios';
-
-
+import { Helmet } from "react-helmet";
 
 class projectWeb extends React.Component {
     static async getInitialProps(ctx) {
@@ -14,13 +13,21 @@ class projectWeb extends React.Component {
             webProject: resProjects.data,
             image: resProjects.data.project_image_url.url,
             title: resProjects.data.meta.seo_title,
-            search_description: resProjects.data.meta.search_description,
+            canonical: resProjects.data.project_canonical,
+            description: resProjects.data.meta.search_description,
         }
     }
     render() {
         const { projectWeb } = this.props;
         return (
             <div>
+                <Helmet>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <meta name="google-site-verification" content="vB1wqK6_bK58jLO6iJr9uhz42Trvi3ukMEZ7FaK0MGk" />
+                    <title>{this.props.title}</title>
+                    <meta name="canonical" content={this.props.canonical} />
+                    <meta name="description" content={this.props.description} />
+                </Helmet>
                 <Header />
                 <Layout>
 

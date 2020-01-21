@@ -5,19 +5,39 @@ import Footer from '../../components/Footer';
 import Typed from 'react-typed';
 import City from '../../assets/img/svg/dc-map.svg';
 import Layout from '../../components/Layout';
+import axios from 'axios';
+import { Helmet } from "react-helmet";
 
 
 class ContactPage extends React.Component {
+    static async getInitialProps() {
+        const res = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=contact.ContactPage&fields=*');
+        return {
+            id: res.data.items[0].id,
+            title: res.data.items[0].meta.seo_title,
+            search_description: res.data.items[0].meta.search_description,
+            canonical: res.data.items[0].canonical,
+            h_one: res.data.items[0].h_one,
+        }
+    }
 
     render() {
         return (
+
             <div>
+                <Helmet>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <meta name="google-site-verification" content="vB1wqK6_bK58jLO6iJr9uhz42Trvi3ukMEZ7FaK0MGk" />
+                    <title>{this.props.title}</title>
+                    <link rel="canonical" href={this.props.canonical} />
+                    <meta name="description" content={this.props.search_description} />
+                </Helmet>
                 <Header />
                 <Layout>
                     <MDBContainer className="pt-5 pb-5">
                         <MDBRow className="pb-3">
                             <MDBCol md="12">
-                                <h1 className="h1">H1</h1>
+                                <h1 className="h1">{this.props.h_one}</h1>
                                 <p className="lead">
                                     <Typed
                                         strings={[

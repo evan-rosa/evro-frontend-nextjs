@@ -4,7 +4,7 @@ import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 import Layout from '../../components/Layout';
 import axios from 'axios';
-
+import { Helmet } from "react-helmet";
 
 class About extends React.Component {
     static async getInitialProps(ctx) {
@@ -12,7 +12,8 @@ class About extends React.Component {
         const resume = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/documents/');
         return {
             about_title: resData.data.items[0].about_title,
-            about_canonical: resData.data.items[0].about_canonical,
+            about_canonical: resData.data.items[0].canonical,
+            about_description: resData.data.items[0].meta.search_description,
             about_p: resData.data.items[0].about_p,
             about_skill_web_development_col_one: resData.data.items[0].about_skill_web_development_col_one,
             about_skill_web_development_col_two: resData.data.items[0].about_skill_web_development_col_two,
@@ -29,6 +30,13 @@ class About extends React.Component {
     render() {
         return (
             <div className="height-inherit-vh parent-wrapper">
+                <Helmet>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <meta name="google-site-verification" content="vB1wqK6_bK58jLO6iJr9uhz42Trvi3ukMEZ7FaK0MGk" />
+                    <title>{this.props.about_title}</title>
+                    <link rel="canonical" href={this.props.about_canonical} />
+                    <meta name="description" content={this.props.about_description} />
+                </Helmet>
                 <Header />
                 <Layout>
                     <MDBContainer className="pb-5">

@@ -1,5 +1,5 @@
-import Footer from '../components/Footer';
-import Header from '../components/Header';
+import Footer from '../../components/Footer';
+import Header from '../../components/Header';
 import {
     MDBContainer,
     MDBRow,
@@ -12,9 +12,10 @@ import {
     MDBView,
     MDBMask
 } from 'mdbreact';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import axios from 'axios';
 import Link from 'next/link';
+import { Helmet } from "react-helmet";
 
 class ProjectIndexPage extends React.Component {
     static async getInitialProps() {
@@ -33,6 +34,13 @@ class ProjectIndexPage extends React.Component {
         const { projectWeb } = this.props;
         return (
             <div>
+                <Helmet>
+                    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+                    <meta name="google-site-verification" content="vB1wqK6_bK58jLO6iJr9uhz42Trvi3ukMEZ7FaK0MGk" />
+                    <title>Evan Rosa's Project Portfolio | EvRo.io</title>
+                    <link rel="canonical" href={this.props.canonical} />
+                    <meta name="description" content="A sample of Evan Rosa's project portfolio." />
+                </Helmet>
                 <Header />
                 <Layout>
                     <MDBContainer className="pt-5">
@@ -49,7 +57,7 @@ class ProjectIndexPage extends React.Component {
                                         <MDBCard cascade wide>
                                             <MDBView cascade overlay>
                                                 <MDBCardImage top src={project.project_image_url.url} alt={project.project_img_alt} className="img-fluid" />
-                                                <Link href="/web-projects/[id]" as={`/web-projects/${project.id}`}>
+                                                <Link href="/projects/[id]" as={`/projects/${project.id}`}>
                                                     <a data-internal="internal-project-image-click"><MDBMask overlay="white-slight" /></a>
                                                 </Link>
                                             </MDBView>
@@ -57,7 +65,7 @@ class ProjectIndexPage extends React.Component {
                                             <MDBCardBody className="pb-3 text-center" cascade>
                                                 <h2 className="font-weight-bold my-3">{project.project_h_one}</h2>
                                                 <MDBCardText>{project.project_h_two}</MDBCardText>
-                                                <Link href="/web-projects/[id]" as={`/web-projects/${project.id}`}>
+                                                <Link href="/projects/[id]" as={`/projects/${project.id}`}>
                                                     <a data-internal="internal-project-button-click">
                                                         <MDBBtn outline className="evro-navy-btn">
                                                             View Project Details
