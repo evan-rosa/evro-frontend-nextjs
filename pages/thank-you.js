@@ -2,7 +2,7 @@ import React from 'react';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
 import Link from 'next/link';
 import Sky from '../../assets/img/svg/dc-skyline.svg';
-import Layout from '../../components/Layout';
+import Layout from '../components/Layout';
 
 class thanks extends React.Component {
     render() {

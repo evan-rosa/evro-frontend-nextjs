@@ -53,7 +53,7 @@ class ContactForm extends React.Component {
                 message: message
             })
             .then((res) => {
-                this.props.history.push('/contact/thank-you')
+                this.props.history.push('/thank-you')
             })
             .catch((error) => console.error(error));
 
@@ -114,7 +114,7 @@ class ContactForm extends React.Component {
                     </MDBRow>
 
                     <MDBBtn outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn">
-                        <Link href="/contact/thank-you">
+                        <Link href="/thank-you">
                             <a data-internal="form submit">Send
                                 </a>
                         </Link>

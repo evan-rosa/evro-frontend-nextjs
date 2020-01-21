@@ -109,7 +109,7 @@ class ContactForm extends React.Component {
                                 value={this.state.message}
                             />
                             <div className="text-center mt-3 black-text">
-                                <MDBBtn data-internal="form submit" outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn" onClick={() => Router.push('/contact/thank-you')}>
+                                <MDBBtn data-internal="form submit" outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn" onClick={() => Router.push('/thank-you')}>
                                     Send
 								</MDBBtn>
                             </div>
