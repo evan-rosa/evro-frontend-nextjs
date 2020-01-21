@@ -6,7 +6,6 @@ export const GtagScript = () => {
         const qs = document.querySelector("#gtm-js");
         if (qs !== null) {
             qs.addEventListener("load", () => {
-                console.log("GTM loaded");
             });
         }
     }
