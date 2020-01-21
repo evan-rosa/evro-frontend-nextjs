@@ -1,11 +1,6 @@
 import React from 'react';
 import { MDBBtn, MDBInput, MDBCard, MDBCardBody } from 'mdbreact';
-import {
-    withRouter
-} from 'react-router-dom'
-
-import '../index.css';
-
+import Router from 'next/router'
 import axios from 'axios';
 
 class ContactForm extends React.Component {
@@ -53,14 +48,11 @@ class ContactForm extends React.Component {
             .catch((error) => console.error(error));
 
         axios
-            .post(`/api/contact/`, {
+            .post(`https://evro-prod-backend.herokuapp.com/api/contact/`, {
                 name: name,
                 email: email,
                 subject: subject,
                 message: message
-            })
-            .then((res) => {
-                this.props.history.push('/contact/thank-you')
             })
             .catch((error) => console.error(error));
 
@@ -117,7 +109,7 @@ class ContactForm extends React.Component {
                                 value={this.state.message}
                             />
                             <div className="text-center mt-3 black-text">
-                                <MDBBtn data-internal="form submit" outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn">
+                                <MDBBtn data-internal="form submit" outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn" onClick={() => Router.push('/contact/thank-you')}>
                                     Send
 								</MDBBtn>
                             </div>
