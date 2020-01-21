@@ -1,7 +1,7 @@
-import { MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
-import Router from 'next/router'
-import Link from 'next/link';
 import React from 'react';
+import { MDBBtn, MDBInput } from 'mdbreact';
+import Router from 'next/router'
+import axios from 'axios';
 
 class ContactForm extends React.Component {
     constructor(props) {
@@ -22,7 +22,7 @@ class ContactForm extends React.Component {
     };
     handleFormSubmit = (event) => {
         axios.defaults.xsrfHeaderName = "X-CSRFToken";
-        axios.defaults.xsrfCookieName = 'csrftoken'
+        axios.defaults.xsrfCookieName = 'csrftoken';
 
         event.preventDefault();
         event.target.className += ' was-validated';
@@ -48,14 +48,11 @@ class ContactForm extends React.Component {
             .catch((error) => console.error(error));
 
         axios
-            .post(`/api/contact/`, {
+            .post(`https://evro-prod-backend.herokuapp.com/api/contact/`, {
                 name: name,
                 email: email,
                 subject: subject,
                 message: message
-            })
-            .then((res) => {
-                this.props.history.push('/contact/thank-you')
             })
             .catch((error) => console.error(error));
 
@@ -66,61 +63,50 @@ class ContactForm extends React.Component {
         return (
             <div>
                 <form id="myForm" onSubmit={(event) => this.handleFormSubmit(event)} className="needs-validation" noValidate>
-                    <MDBRow>
-                        <MDBCol md="12">
-                            <div className="md-form mb-0">
-                                <MDBInput
-                                    required
-                                    name="name"
-                                    type="text"
-                                    id="contact-name"
-                                    label="Your name"
-                                    onChange={this.handleChange}
-                                    value={this.state.email}
-                                />
-                            </div>
-                            <div className="md-form mb-0">
-                                <MDBInput
-                                    required
-                                    name="email"
-                                    type="email"
-                                    id="contact-email"
-                                    label="Your email"
-                                    onChange={this.handleChange}
-                                    value={this.state.email}
-                                />
-                            </div>
-                            <div className="md-form mb-0">
-                                <MDBInput
-                                    required
-                                    name="subject"
-                                    type="text"
-                                    id="contact-text"
-                                    label="Subject Line"
-                                    onChange={this.handleChange}
-                                    value={this.state.email}
-                                />
-                            </div>
-                            <div className="md-form mb-0">
-                                <MDBInput
-                                    required
-                                    name="message"
-                                    type="textarea"
-                                    id="contact-message"
-                                    label="Your message"
-                                    onChange={this.handleChange}
-                                    value={this.state.email}
-                                />
-                            </div>
-                        </MDBCol>
-                    </MDBRow>
+                    <MDBInput
+                        required
+                        name="name"
+                        type="text"
+                        id="name"
+                        label="Your name"
+                        onChange={this.handleChange}
+                        value={this.state.name}
+                    />
 
-                    <MDBBtn outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn">
-                        <Link href="/contact/thank-you">
-                            <a data-internal="form submit">Send
-                                </a>
-                        </Link>
-                    </MDBBtn>
+                    <MDBInput
+                        required
+                        name="email"
+                        type="email"
+                        id="email"
+                        label="Your email"
+                        onChange={this.handleChange}
+                        value={this.state.email}
+                    />
+
+                    <MDBInput
+                        required
+                        name="subject"
+                        type="text"
+                        id="subject"
+                        label="Subject Line"
+                        onChange={this.handleChange}
+                        value={this.state.subject}
+                    />
+
+                    <MDBInput
+                        required
+                        name="message"
+                        type="textarea"
+                        id="message"
+                        label="Your message"
+                        onChange={this.handleChange}
+                        value={this.state.message}
+                    />
+                    <div className="text-center mt-3 black-text">
+                        <MDBBtn data-internal="form submit" outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn" onClick={() => Router.push('/contact/thank-you')}>
+                            Send
+								</MDBBtn>
+                    </div>
 
                 </form>
             </div>

@@ -37,7 +37,7 @@ class Header extends React.Component {
                         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                             <MDBNavbarNav right>
                                 <MDBNavItem>
-                                    <Link href="/about">
+                                    <Link href="/about/evan-rosa">
                                         <a data-header="head-nav-about" className="nav-link">About</a>
                                     </Link>
                                 </MDBNavItem>
@@ -49,7 +49,7 @@ class Header extends React.Component {
                                 </MDBNavItem>
 
                                 <MDBNavItem>
-                                    <Link href="/contact">
+                                    <Link href="/contact/evan-rosa">
                                         <a data-header="head-nav-contact" className="nav-link">Contact</a>
                                     </Link>
                                 </MDBNavItem>

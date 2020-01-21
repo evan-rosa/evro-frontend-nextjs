@@ -49,7 +49,7 @@ class thanks extends React.Component {
                                 <MDBCol>
 
 
-                                    <Link href="/about">
+                                    <Link href="/about/evan-rosa">
                                         <a data-internal="internal-learn-about-evan">
                                             <MDBBtn outline className="evro-navy-btn">
                                                 Learn More About Evan Rosa

@@ -1,8 +1,8 @@
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn, MDBCardBody } from 'mdbreact';
 import Link from 'next/link';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import Layout from '../components/Layout';
+import Header from '../../components/Header';
+import Footer from '../../components/Footer';
+import Layout from '../../components/Layout';
 import axios from 'axios';
 
 
@@ -218,7 +218,7 @@ class About extends React.Component {
                         </MDBRow>
                         <MDBRow>
                             <MDBCol md="12">
-                                <Link href="/contact">
+                                <Link href="/contact/evan-rosa">
                                     <a data-internal="internal-contact-button" className="nav-link">
                                         <MDBBtn outline className="evro-navy-btn">
                                             Contact

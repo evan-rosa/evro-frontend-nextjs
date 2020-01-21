@@ -1,10 +1,10 @@
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import { MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdbreact';
-import ContactForm from '../components/FormContact';
-import Footer from '../components/Footer';
+import ContactForm from '../../components/FormContact';
+import Footer from '../../components/Footer';
 import Typed from 'react-typed';
-import City from '../assets/img/svg/dc-map.svg';
-import Layout from '../components/Layout';
+import City from '../../assets/img/svg/dc-map.svg';
+import Layout from '../../components/Layout';
 
 
 class ContactPage extends React.Component {
