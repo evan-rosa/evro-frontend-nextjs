@@ -1,50 +1,32 @@
-/* eslint-disable no-console */
-const express = require('express')
-const next = require('next')
+const express = require('express');
+const next = require('next');
+const bodyParser = require('body-parser');
 
-const devProxy = {
-    '/api': {
-        target: 'https://evro.io/api/',
-        pathRewrite: { '^/api': '/' },
-        changeOrigin: true,
-    },
-}
+const dev = process.env.NODE_ENV !== 'production';
+const app = next({ dev });
+const handle = app.getRequestHandler();
 
-const port = parseInt(process.env.PORT, 10) || 3000
-const env = process.env.NODE_ENV
-const dev = env !== 'production'
-const app = next({
-    dir: '.', // base directory where everything is, could move to src later
-    dev,
-})
 
-const handle = app.getRequestHandler()
+const sitemapOptions = {
+    root: __dirname + '/public/',
+    headers: {
+        'Content-Type': 'text/xml;charset=UTF-8'
+    }
+};
 
-let server
-app
-    .prepare()
-    .then(() => {
-        server = express()
+app.prepare().then(() => {
+    const server = express();
+    server.use(bodyParser.json());
 
-        // Set up the proxy.
-        if (dev && devProxy) {
-            const proxyMiddleware = require('http-proxy-middleware')
-            Object.keys(devProxy).forEach(function (context) {
-                server.use(proxyMiddleware(context, devProxy[context]))
-            })
-        }
+    // serve sitemap
+    server.get('/sitemap.xml', (req, res) => res.status(200).sendFile('sitemap.xml', sitemapOptions));
 
-        // Default catch-all handler to allow Next.js to handle all other routes
-        server.all('*', (req, res) => handle(req, res))
+    server.get('*', (req, res) => {
+        return handle(req, res);
+    });
 
-        server.listen(port, err => {
-            if (err) {
-                throw err
-            }
-            console.log(`> Ready on port ${port} [${env}]`)
-        })
-    })
-    .catch(err => {
-        console.log('An error occurred, unable to start the server')
-        console.log(err)
-    })
+    server.listen(3000, err => {
+        if (err) throw err;
+        console.log('> Read on http://localhost:3000');
+    });
+});

@@ -10,8 +10,9 @@ class About extends React.Component {
     static async getInitialProps(ctx) {
         const resData = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=about.AboutPage&fields=*');
         const resume = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/documents/');
+        console.log();
         return {
-            about_title: resData.data.items[0].about_title,
+            about_title: resData.data.items[0].title,
             about_canonical: resData.data.items[0].canonical,
             about_description: resData.data.items[0].meta.search_description,
             about_p: resData.data.items[0].about_p,

@@ -9,6 +9,7 @@ class projectWeb extends React.Component {
     static async getInitialProps(ctx) {
         const id = ctx.query.id;
         const resProjects = await axios.get(`https://evro-prod-backend.herokuapp.com/api/v2/pages/${id}/?type=projects.ProjectsPage&fields=*`);
+        console.log(ctx);
         return {
             webProject: resProjects.data,
             image: resProjects.data.project_image_url.url,
@@ -18,7 +19,6 @@ class projectWeb extends React.Component {
         }
     }
     render() {
-        const { projectWeb } = this.props;
         return (
             <div>
                 <Helmet>

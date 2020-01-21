@@ -24,11 +24,14 @@ class ProjectIndexPage extends React.Component {
         return {
             id: res.data.items[0].id,
             title: res.data.items[0].title,
+            seo_title: res.data.items[0].meta.seo_title,
+            seo_description: res.data.items[0].meta.search_description,
             h1: res.data.items[0].project_h1,
             content: res.data.items[0].project_p,
             canonical: res.data.items[0].canonical,
             projectWeb: resProject.data.items
         }
+
     }
     render() {
         const { projectWeb } = this.props;
@@ -37,9 +40,9 @@ class ProjectIndexPage extends React.Component {
                 <Helmet>
                     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
                     <meta name="google-site-verification" content="vB1wqK6_bK58jLO6iJr9uhz42Trvi3ukMEZ7FaK0MGk" />
-                    <title>Evan Rosa's Project Portfolio | EvRo.io</title>
+                    <title>{this.props.seo_title}</title>
                     <link rel="canonical" href={this.props.canonical} />
-                    <meta name="description" content="A sample of Evan Rosa's project portfolio." />
+                    <meta name="description" content={this.props.seo_description} />
                 </Helmet>
                 <Header />
                 <Layout>
