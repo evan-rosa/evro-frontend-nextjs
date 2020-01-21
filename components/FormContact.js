@@ -1,6 +1,7 @@
 import { MDBRow, MDBCol, MDBBtn, MDBInput } from 'mdbreact';
 import Router from 'next/router'
 import Link from 'next/link';
+import React from 'react';
 
 class ContactForm extends React.Component {
     constructor(props) {
@@ -54,7 +55,7 @@ class ContactForm extends React.Component {
                 message: message
             })
             .then((res) => {
-                this.props.history.push('/thank-you')
+                this.props.history.push('/contact/thank-you')
             })
             .catch((error) => console.error(error));
 
@@ -115,7 +116,7 @@ class ContactForm extends React.Component {
                     </MDBRow>
 
                     <MDBBtn outline size="md" type="submit" className="btn-block z-depth-2 evro-navy-btn">
-                        <Link href="/thank-you">
+                        <Link href="/contact/thank-you">
                             <a data-internal="form submit">Send
                                 </a>
                         </Link>
