@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse
+    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, MDBHamburgerToggler
 } from "mdbreact";
 
 class Header extends React.Component {
@@ -27,13 +27,7 @@ class Header extends React.Component {
                                 </a>
                             </Link>
                         </MDBNavbarBrand>
-
-                        <MDBNavbarToggler
-                            className="hide-ham"
-                            color="#2c3d5c"
-                            id="hamburger1"
-                            onClick={this.toggleCollapse}
-                        />
+                        <MDBHamburgerToggler className="hide-ham" color="#2c3d5c" id="hamburger1" onClick={this.toggleCollapse} />
                         <MDBCollapse id="navbarCollapse3" isOpen={this.state.isOpen} navbar>
                             <MDBNavbarNav right>
                                 <MDBNavItem>
