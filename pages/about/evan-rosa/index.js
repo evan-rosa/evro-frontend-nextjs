@@ -1,10 +1,11 @@
 import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBBtn, MDBCardBody } from 'mdbreact';
 import Link from 'next/link';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import Layout from '../../components/Layout';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
+import Layout from '../../../components/Layout';
 import axios from 'axios';
 import { Helmet } from "react-helmet";
+import '../../about/about.css';
 
 class About extends React.Component {
     static async getInitialProps(ctx) {

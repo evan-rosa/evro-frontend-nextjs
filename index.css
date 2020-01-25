@@ -8,7 +8,7 @@ body,
 	height: inherit;
 }
 body {
-	font-family: 'Catamaran', Roboto, Helvetica, Arial, sans-serif !important;
+	font-family: Roboto, Helvetica, Arial, sans-serif !important;
 	font-weight: 300;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -196,88 +196,6 @@ a:hover {
 	color: #2c3d5c !important;
 }
 
-/*Contact Page*/
-.hello-margin {
-	margin-bottom: -.2rem;
-}
-.hello-btn {
-	padding: .3rem .7rem;
-}
-.hello-email {
-	margin-bottom: -.2rem;
-}
-.map-fit {
-	display: flex;
-	position: relative;
-	justify-content: center;
-	align-items: center;
-	overflow: hidden;
-	flex-wrap: wrap;
-	align-content: center;
-	max-height: 30rem;
-}
-.map-fit:after {
-	background-color: #e2282e;
-	opacity: 0.8;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	content: ' ';
-}
-.map-fit .dc-map {
-	min-width: 110%;
-	flex-grow: 1;
-}
-
-.contact-info {
-	font-weight: 600;
-	color: grey;
-}
-.contact-form-pad {
-	margin-bottom: 10rem;
-}
-.send-btn {
-	margin: 0;
-	padding: 3rem;
-	font-weight: 600;
-	font-size: 150%;
-}
-
-/*Home*/
-.btn-link {
-    padding: .5rem 0rem !important;
-}
-.parent-wrapper {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-}
-
-.content {
-	flex: 1 0 auto;
-}
-.child-wrapper {
-	flex-shrink: 0;
-}
-.home-hero {
-	z-index: 1 !important;
-}
-/*About*/
-svg.react-chart > text {
-	fill: #2c3d5c;
-}
-.skill-category {
-	line-height: 3.3;
-}
-.card .card-body h3 {
-	font-weight: 300 !important;
-}
-.card .card-body .card-text,
-.skill-list {
-	font-weight: 100 !important;
-}
 
 /*------DS Pages-------*/
 .asymmetric-down{

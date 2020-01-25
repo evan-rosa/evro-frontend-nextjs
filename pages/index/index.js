@@ -1,12 +1,13 @@
-import Header from '../components/Header';
+import Header from '../../components/Header';
 import { MDBContainer, MDBRow, MDBCol, MDBBtn, MDBIcon } from 'mdbreact';
-import FeatureForm from '../components/FormFeature';
-import Sky from '../assets/img/svg/dc-skyline.svg';
+import FeatureForm from '../../components/FormFeature';
+import Sky from '../../assets/img/svg/dc-skyline.svg';
 import Link from 'next/link';
 import React from 'react'
 import axios from 'axios';
-import Layout from '../components/Layout';
+import Layout from '../../components/Layout';
 import { Helmet } from "react-helmet";
+import '../index/home.css';
 
 class Index extends React.Component {
 

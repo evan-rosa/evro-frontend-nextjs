@@ -1,7 +1,7 @@
 import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
-import Layout from '../../components/Layout';
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
+import Layout from '../../../components/Layout';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 import axios from 'axios';
 import { Helmet } from "react-helmet";
 

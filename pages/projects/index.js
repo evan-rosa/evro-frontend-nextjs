@@ -60,7 +60,7 @@ class ProjectIndexPage extends React.Component {
                                         <MDBCard cascade wide>
                                             <MDBView cascade overlay>
                                                 <MDBCardImage top src={project.project_image_url.url} alt={project.project_img_alt} className="img-fluid" />
-                                                <Link href="/projects/[id]" as={`/projects/${project.id}`}>
+                                                <Link href="/projects/[id]" as={`/projects/web/${project.id}`}>
                                                     <a data-internal="internal-project-image-click"><MDBMask overlay="white-slight" /></a>
                                                 </Link>
                                             </MDBView>
@@ -68,7 +68,7 @@ class ProjectIndexPage extends React.Component {
                                             <MDBCardBody className="pb-3 text-center" cascade>
                                                 <h2 className="font-weight-bold my-3">{project.project_h_one}</h2>
                                                 <MDBCardText>{project.project_h_two}</MDBCardText>
-                                                <Link href="/projects/[id]" as={`/projects/${project.id}`}>
+                                                <Link href="/projects/[id]" as={`/projects/web/${project.id}`}>
                                                     <a data-internal="internal-project-button-click">
                                                         <MDBBtn outline className="evro-navy-btn">
                                                             View Project Details
