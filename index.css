@@ -42,15 +42,7 @@ a:hover {
 
 /*LOGO Font*/
 @import url(//db.onlinewebfonts.com/c/84253ac850a27903273770579bbf9313?family=FrankentypeW01-Regular);
-@font-face {
-	font-family: "FrankentypeW01-Regular";
-	src: url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.eot");
-	src: url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.eot?#iefix") format("embedded-opentype"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.woff2") format("woff2"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.woff") format("woff"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.ttf") format("truetype"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.svg#FrankentypeW01-Regular") format("svg");
-}
+
 /*End Fonts*/
 
 
