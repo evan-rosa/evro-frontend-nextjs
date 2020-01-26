@@ -15,14 +15,40 @@ const sitemapOptions = {
     }
 };
 
+const devProxy = {
+    '/api': {
+        target: 'https://evro-prod-backend.herokuapp.com/api',
+        pathRewrite: { '^/api': '/' },
+        changeOrigin: true
+    }
+};
+
 app.prepare().then(() => {
     const server = express();
-    server.use(bodyParser.json());
+
+    // Set up the proxy.
+    if (dev && devProxy) {
+        const proxyMiddleware = require('http-proxy-middleware');
+        Object.keys(devProxy).forEach(function (context) {
+            server.use(proxyMiddleware(context, devProxy[context]))
+        })
+    }
+
+    server.use(function (req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header('Access-Control-Allow-Methods', 'GET,POST');
+        res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+        next();
+    });
+
+    server.use(bodyParser.json()); // support json encoded bodies
+    server.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
+
 
     // serve sitemap
     server.get('/sitemap.xml', (req, res) => res.status(200).sendFile('sitemap.xml', sitemapOptions));
 
-    server.get('*', (req, res) => {
+    server.all('*', (req, res) => {
         return handle(req, res);
     });
 

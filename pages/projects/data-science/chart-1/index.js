@@ -9,13 +9,7 @@ class Chart extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            id: [],
-            title: [],
-            search_description: [],
-            canonical: [],
-            h_one: [],
-            h_one_span: [],
-            content: []
+            data: []
         };
         this.getData = this.getData.bind(this);
     }
@@ -25,9 +19,11 @@ class Chart extends React.Component {
             .get(url)
             .then((res) => {
                 this.setState({
-                    test: res.data
+                    data: res.data,
+
                 });
                 console.log(res.data);
+                console.log(data.wine_id);
             })
             .catch((error) => this.setState({ error }));
 
