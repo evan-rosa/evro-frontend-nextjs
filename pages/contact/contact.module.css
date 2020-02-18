@@ -1,0 +1,48 @@
+/*Contact Page*/
+.hello-margin {
+	margin-bottom: -.2rem;
+}
+.hello-btn {
+	padding: .3rem .7rem;
+}
+.hello-email {
+	margin-bottom: -.2rem;
+}
+.map-fit {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	flex-wrap: wrap;
+	align-content: center;
+	max-height: 30rem;
+}
+.map-fit:after {
+	background-color: #e2282e;
+	opacity: 0.8;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	content: ' ';
+}
+.map-fit .dc-map {
+	min-width: 110%;
+	flex-grow: 1;
+}
+
+.contact-info {
+	font-weight: 600;
+	color: grey;
+}
+.contact-form-pad {
+	margin-bottom: 10rem;
+}
+.send-btn {
+	margin: 0;
+	padding: 3rem;
+	font-weight: 600;
+	font-size: 150%;
+}

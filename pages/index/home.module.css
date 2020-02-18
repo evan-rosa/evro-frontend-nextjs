@@ -1,0 +1,19 @@
+/*Home*/
+.btn-link {
+    padding: .5rem 0rem !important;
+}
+.parent-wrapper {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.content {
+	flex: 1 0 auto;
+}
+.child-wrapper {
+	flex-shrink: 0;
+}
+.home-hero {
+	z-index: 1 !important;
+}

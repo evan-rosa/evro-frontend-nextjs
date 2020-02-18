@@ -5,7 +5,7 @@ import Footer from '../../../components/Footer';
 import Layout from '../../../components/Layout';
 import axios from 'axios';
 import { Helmet } from "react-helmet";
-import '../../about/about.css';
+import '../../about/about.module.css';
 
 class About extends React.Component {
     static async getInitialProps(ctx) {

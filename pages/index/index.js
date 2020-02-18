@@ -7,7 +7,7 @@ import React from 'react'
 import axios from 'axios';
 import Layout from '../../components/Layout';
 import { Helmet } from "react-helmet";
-import '../index/home.css';
+import '../index/home.module.css';
 
 class Index extends React.Component {
 

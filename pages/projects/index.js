@@ -21,6 +21,7 @@ class ProjectIndexPage extends React.Component {
     static async getInitialProps() {
         const res = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=project_index.ProjectIndexPage&fields=*');
         const resProject = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=projects.ProjectsPage&fields=*');
+        const resDS = await axios.get('https://evro-stage-backend.herokuapp.com/api/v2/pages/?type=projects.DSProjectsPage&fields=*');
         return {
             id: res.data.items[0].id,
             title: res.data.items[0].title,
@@ -29,12 +30,15 @@ class ProjectIndexPage extends React.Component {
             h1: res.data.items[0].project_h1,
             content: res.data.items[0].project_p,
             canonical: res.data.items[0].canonical,
-            projectWeb: resProject.data.items
+            projectWeb: resProject.data.items,
+            projectDs: resDS.data.items
         }
 
     }
     render() {
         const { projectWeb } = this.props;
+        const { projectDs } = this.props;
+
         return (
             <div>
                 <Helmet>
@@ -81,6 +85,36 @@ class ProjectIndexPage extends React.Component {
                                 </MDBCol>
                             ))}
                         </MDBRow>
+
+                        <MDBRow>
+                            {projectDs.map((ds) => (
+                                <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
+                                    <section key={ds.id}>
+                                        <MDBCard cascade wide>
+                                            <MDBView cascade overlay>
+                                                <MDBCardImage top src={ds.ds_image_url.url} alt={ds.img_alt} className="img-fluid" />
+                                                <Link href="/projects/data-science/[id]" as={`/projects/data-science/${ds.id}`}>
+                                                    <a data-internal="internal-project-image-click"><MDBMask overlay="white-slight" /></a>
+                                                </Link>
+                                            </MDBView>
+
+                                            <MDBCardBody className="pb-3 text-center" cascade>
+                                                <h2 className="font-weight-bold my-3">{ds.h_one}</h2>
+                                                <MDBCardText>{ds.h_two_eda}</MDBCardText>
+                                                <Link href="/projects/data-science/[id]" as={`/projects/data-science/${ds.id}`}>
+                                                    <a data-internal="internal-project-button-click">
+                                                        <MDBBtn outline className="evro-navy-btn">
+                                                            View Project Details
+										                </MDBBtn>
+                                                    </a>
+                                                </Link>
+                                            </MDBCardBody>
+                                        </MDBCard>
+                                    </section>
+                                </MDBCol>
+                            ))}
+                        </MDBRow>
+
                     </MDBContainer>
                 </Layout>
                 <Footer />

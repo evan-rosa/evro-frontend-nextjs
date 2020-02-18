@@ -7,7 +7,7 @@ import City from '../../../assets/img/svg/dc-map.svg';
 import Layout from '../../../components/Layout';
 import axios from 'axios';
 import { Helmet } from "react-helmet";
-import '../../contact/contact.css';
+import '../../contact/contact.module.css';
 
 
 class ContactPage extends React.Component {
