@@ -28,12 +28,12 @@ class projectDS extends React.Component {
     }
     render() {
         //conditional rendering of charts for DS projects based on url
-        let dsTen = this.props.page.includes('/projects/data-science/10') ? (
-            <div className="evro-grey-back" id="ds-10">
+        let dsTen = this.props.page.includes('/projects/data-science/12') ? (
+            <div className="evro-grey-back" id="ds-12">
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol md="12">
-                            <h2 className="h5-responsive">{this.props.dsProject.h_two_eda}</h2>
+                            <h2 className="h5-responsive">Exploratory Data Analysis</h2>
                         </MDBCol>
                     </MDBRow>
                     <MDBRow>
@@ -65,16 +65,19 @@ class projectDS extends React.Component {
                 </Helmet>
                 <Header />
                 <Layout>
-                    <MDBContainer>
+                    <MDBContainer className="pt-5 desk-margin">
                         <MDBRow className="pb-5">
                             <MDBCol md="12" lg="6">
                                 <h1 className="h1">{this.props.dsProject.h_one}</h1>
-                                <div
-                                    dangerouslySetInnerHTML={{ __html: this.props.dsProject.problem_statement }}
-                                />
+                                <p>{this.props.dsProject.problem_statement}</p>
                             </MDBCol>
                             <MDBCol md="12" lg="6">
                                 <img src={this.props.dsProject.ds_image_url.url} alt={this.props.dsProject.img_alt} className="img-fluid z-depth-5" />
+                            </MDBCol>
+                        </MDBRow>
+                        <MDBRow className="pb-5">
+                            <MDBCol md="12" lg="6">
+                                <h2 className="h5-responsive">{this.props.dsProject.data_review}</h2>
                             </MDBCol>
                         </MDBRow>
                     </MDBContainer>

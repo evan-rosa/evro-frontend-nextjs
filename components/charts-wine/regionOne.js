@@ -8,7 +8,7 @@ const COLORS_SERIES = ['#e2282e', '#141446', '#7A77FF'];
 
 const draw = (node, resultSet, chartType) => {
     // Set the dimensions and margins of the graph
-    const margin = { top: 10, right: 30, bottom: 100, left: 60 },
+    const margin = { top: 10, right: 30, bottom: 30, left: 60 },
         width = node.clientWidth - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
 
@@ -76,10 +76,10 @@ const barRender = ({ resultSet }) => (
 )
 
 
-const API_URL = "http://127.0.0.1:4000"; // change to your actual endpoint
+const API_URL = "http://evro-analytics.herokuapp.com/"; // change to your actual endpoint
 
 const cubejsApi = cubejs(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODE5NTYxNzgsImV4cCI6MTU4MjA0MjU3OH0.rr9T1W8VH_qnKvgwSJsJqcm1Fmjrs_YXbxFVbh9OJOg",
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODI0MTkxNzcsImV4cCI6MTU4MjUwNTU3N30.TZTHEak6DzNWpMX9hAD8nSIzhLciJOJc3gnH6WVzca8",
     { apiUrl: API_URL + "/cubejs-api/v1" }
 );
 
@@ -100,15 +100,15 @@ const ChartRenderer = () => <QueryRenderer
         ],
         "filters": [
             {
-                "dimension": "Wine.region1",
-                "operator": "set"
-            },
-            {
                 "dimension": "Wine.count",
-                "operator": "gt",
+                "operator": "gte",
                 "values": [
                     "1500"
                 ]
+            },
+            {
+                "dimension": "Wine.region1",
+                "operator": "set"
             }
         ]
     }}
