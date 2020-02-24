@@ -18,10 +18,7 @@ const devProxy = {
 const port = parseInt(process.env.PORT, 10) || 3000
 const env = process.env.NODE_ENV
 const dev = process.env.NODE_ENV !== 'production';
-const app = next({
-    dir: '.', // base directory where everything is, could move to src later
-    dev,
-})
+const app = next({ dev })
 const handle = app.getRequestHandler();
 
 
@@ -57,7 +54,9 @@ app
 
 
         // Default catch-all handler to allow Next.js to handle all other routes
-        server.all('*', (req, res) => handle(req, res))
+        server.all('*', (req, res) => {
+            return handle(req, res);
+        });
 
         server.listen(port, err => {
             if (err) {
