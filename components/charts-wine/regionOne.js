@@ -76,7 +76,7 @@ const barRender = ({ resultSet }) => (
 )
 
 
-const API_URL = "http://evro-analytics.herokuapp.com/"; // change to your actual endpoint
+const API_URL = "http://evro-prod-analytics.herokuapp.com/"; // change to your actual endpoint
 
 const cubejsApi = cubejs(
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODI0MTkxNzcsImV4cCI6MTU4MjUwNTU3N30.TZTHEak6DzNWpMX9hAD8nSIzhLciJOJc3gnH6WVzca8",
