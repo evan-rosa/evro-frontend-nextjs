@@ -112,9 +112,6 @@ class projectDS extends React.Component {
                                 />
                                 <h2 className="pt-5">Data Summary</h2>
                                 <p>{this.props.dsProject.data_summary}</p>
-
-
-
                             </MDBCol>
                             <MDBCol md="12" lg="6">
                                 <img src={this.props.dsProject.ds_image_url.url} alt={this.props.dsProject.img_alt} className="img-fluid z-depth-5" />
