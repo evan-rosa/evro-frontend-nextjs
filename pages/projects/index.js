@@ -84,9 +84,7 @@ class ProjectIndexPage extends React.Component {
                                     </section>
                                 </MDBCol>
                             ))}
-                        </MDBRow>
 
-                        <MDBRow>
                             {projectDs.map((ds) => (
                                 <MDBCol lg="4" md="6" className="mb-lg-0 mb-4">
                                     <section key={ds.id}>
