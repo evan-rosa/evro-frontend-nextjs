@@ -41,9 +41,9 @@
     "yarn": "1.21.1"
   },
   "scripts": {
-    "dev": "NODE_ENV=development PORT=3000 node server.js",
+    "dev": "NODE_ENV=development node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production PORT=3000 node server.js",
+    "start": "NODE_ENV=production node server.js",
     "postinstall": "npm run build"
   }
 }
