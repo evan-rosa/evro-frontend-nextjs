@@ -42,25 +42,15 @@ a:hover {
 }
 
 /*LOGO Font*/
-@import url(//db.onlinewebfonts.com/c/84253ac850a27903273770579bbf9313?family=FrankentypeW01-Regular);
-@font-face {
-	font-family: "FrankentypeW01-Regular";
-	src: url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.eot");
-	src: url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.eot?#iefix") format("embedded-opentype"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.woff2") format("woff2"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.woff") format("woff"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.ttf") format("truetype"),
-		url("//db.onlinewebfonts.com/t/84253ac850a27903273770579bbf9313.svg#FrankentypeW01-Regular") format("svg");
-}
+@import url('https://fonts.googleapis.com/css?family=Knewave&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Mogra&display=swap');
+
 /*End Fonts*/
 
 
 /*Overall CSS Styles*/
 .line-height {
 	line-height: 1.5;
-}
-.rcw-widget-container {
-	z-index: 1000 !important;
 }
 .li-ic{
 	color: #0082ca!important;
@@ -76,22 +66,6 @@ a:hover {
 }
 .ins-ic {
     color: #2e5e86!important;
-}
-/*Chatbot styles*/
-.rcw-conversation-container .rcw-header {
-	background-color: #2c3d5c !important;
-}
-
-.rcw-message > .rcw-response {
-	background-color: #e2282e;
-	color: #fefefe !important;
-}
-.rcw-launcher {
-	background-color: #2c3d5c !important;
-}
-.rcw-client {
-	background-color: #2c3d5c !important;
-	color: #fefefe !important;
 }
 
 /* EVRO Background Colors*/
@@ -182,7 +156,7 @@ a:hover {
 
 .App-logo {
 	width: 10rem;
-	font-family: "FrankentypeW01-Regular";
+	font-family: 'Mogra', 'Roboto', Helvetica, Arial, sans-serif !important;
 	width: 100%;
 	height: 100%;
 	font-size: 5vh;
@@ -198,71 +172,8 @@ a:hover {
 }
 
 
-/*------DS Pages-------*/
-.asymmetric-down{
- position: relative;
- background-color: #2c3d5c;
-}
-.asymmetric-down::before {
- position: absolute;
- content: "";
- width: 100%;
- height: 100%;
- top: 0;
- left: 0;
- background-color: #2c3d5c;
- transform-origin: top left;
- transform: skewY(-3deg)
-}
-.asymmetric-down::after {
- position: absolute;
- content: "";
- width: 100%;
- height: 100%;
- top: 0;
- left: 0;
- background-color: #2c3d5c;
- transform-origin: bottom left;
- transform: skewY(3deg);
- z-index: -10;
-}
 
-
-
-
-
-.asymmetric-up{
- position: relative;
- background-color: #f8fafd;
-}
-.asymmetric-up::before {
- position: absolute;
- content: "";
- width: 100%;
- height: 100%;
- top: 0;
- left: 0;
- background-color: #f8fafd;
- transform-origin: bottom right;
- transform: skewY(3deg);
-}
-.asymmetric-up::after {
- position: absolute;
- content: "";
- width: 100%;
- height: 100%;
- top: 0;
- left: 0;
- background-color: #f8fafd;
- transform-origin: top right;
- transform: skewY(-3deg);
- z-index: -10;
-}
 /* ----------- Mobile Devices ----------- */
-
-/* ----------- Orientation Lock ----------- */
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-}
 
 /* ----------- General Devices ----------- */
 @media only screen and (max-width: 768px) {
@@ -303,14 +214,7 @@ a:hover {
 		min-height: 88.4vh;
 	}
 }
-@media screen and (max-width: 800px) {
-	.rcw-widget-container.rcw-opened {
-		height: 80% !important;
-	}
-	.rcw-conversation-container .rcw-close-button {
-		background-color: #2c3d5c !important;
-	}
-}
+
 
 @media only screen and (min-width: 600px) and (min-height: 900px) {
 	.height-inherit-vh {
@@ -344,10 +248,6 @@ a:hover {
 }
 
 /* ----------- iPad Pro ----------- */
-/* Portrait and Landscape */
-@media only screen and (min-width: 1024px) and (max-height: 1366px) and (-webkit-min-device-pixel-ratio: 1.5) {
-}
-
 /* Portrait */
 @media only screen and (min-width: 1024px) and (max-height: 1366px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1.5) {
 	.height-inherit-vh {
