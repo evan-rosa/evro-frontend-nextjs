@@ -77,7 +77,7 @@ const barRender = ({ resultSet }) => (
 )
 
 
-const API_URL = "http://evro-prod-analytics.herokuapp.com"; // change to your actual endpoint
+const API_URL = "https://evro-prod-analytics.herokuapp.com"; // change to your actual endpoint
 
 let apiTokenPromise;
 

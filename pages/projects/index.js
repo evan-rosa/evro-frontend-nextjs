@@ -21,7 +21,7 @@ class ProjectIndexPage extends React.Component {
     static async getInitialProps() {
         const res = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=project_index.ProjectIndexPage&fields=*');
         const resProject = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=projects.ProjectsPage&fields=*');
-        const resDS = await axios.get('https://evro-stage-backend.herokuapp.com/api/v2/pages/?type=projects.DSProjectsPage&fields=*');
+        const resDS = await axios.get('https://evro-prod-backend.herokuapp.com/api/v2/pages/?type=projects.DSProjectsPage&fields=*');
         return {
             id: res.data.items[0].id,
             title: res.data.items[0].title,
@@ -100,7 +100,7 @@ class ProjectIndexPage extends React.Component {
 
                                             <MDBCardBody className="pb-3 text-center" cascade>
                                                 <h2 className="font-weight-bold my-3">{ds.h_one}</h2>
-                                                <MDBCardText>{ds.h_two_eda}</MDBCardText>
+                                                <MDBCardText>{ds.h_two}</MDBCardText>
                                                 <Link href="/projects/data-science/[id]" as={`/projects/data-science/${ds.id}`}>
                                                     <a data-internal="internal-project-button-click">
                                                         <MDBBtn outline className="evro-navy-btn">
