@@ -15,7 +15,8 @@ const devProxy = {
         changeOrigin: true
     }
 };
-const port = process.env.PORT, 10 || 3000
+const port = parseInt(process.env.PORT, 10) || 3000
+var host = process.env.YOUR_HOST || '0.0.0.0';
 const env = process.env.NODE_ENV
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({
@@ -59,7 +60,7 @@ app
         // Default catch-all handler to allow Next.js to handle all other routes
         server.all('*', (req, res) => handle(req, res))
 
-        server.listen(port, err => {
+        server.listen(port, host, err => {
             if (err) {
                 throw err
             }
