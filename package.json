@@ -43,6 +43,7 @@
   "scripts": {
     "dev": "NODE_ENV=development PORT=3000 node server.js",
     "build": "next build",
-    "start": "NODE_ENV=production PORT=3000 node server.js"
+    "start": "NODE_ENV=production PORT=3000 node server.js",
+    "heroku-postbuild": "npm run build"
   }
 }
