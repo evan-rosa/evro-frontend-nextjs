@@ -40,6 +40,8 @@ app
                 server.use(proxyMiddleware(context, devProxy[context]))
             })
         }
+        server.use(express.static(__dirname, { dotfiles: 'allow' }));
+
 
         server.use(function (req, res, next) {
             res.header("Access-Control-Allow-Origin", "*");
