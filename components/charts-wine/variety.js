@@ -2,6 +2,7 @@ import React from 'react';
 import cubejs from '@cubejs-client/core';
 import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
+import './wine.css'
 
 import * as d3 from 'd3';
 const COLORS_SERIES = ['#e2282e', '#141446', '#7A77FF'];
@@ -76,12 +77,19 @@ const barRender = ({ resultSet }) => (
 )
 
 
-const API_URL = "http://127.0.0.1:4000"; // change to your actual endpoint
+const API_URL = "http://evro-prod-analytics.herokuapp.com"; // change to your actual endpoint
 
-const cubejsApi = cubejs(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1ODE5NTYxNzgsImV4cCI6MTU4MjA0MjU3OH0.rr9T1W8VH_qnKvgwSJsJqcm1Fmjrs_YXbxFVbh9OJOg",
-    { apiUrl: API_URL + "/cubejs-api/v1" }
-);
+let apiTokenPromise;
+
+const cubejsApi = cubejs(() => {
+    if (!apiTokenPromise) {
+        apiTokenPromise = fetch(`${API_URL}/auth/cubejs-token`)
+            .then(res => res.json()).then(r => r.token)
+    }
+    return apiTokenPromise;
+}, {
+    apiUrl: `${API_URL}/cubejs-api/v1`
+});
 
 const renderChart = (Component) => ({ resultSet, error }) => (
     (resultSet && <Component resultSet={resultSet} />) ||

@@ -3,6 +3,7 @@ import cubejs from '@cubejs-client/core';
 import { QueryRenderer } from '@cubejs-client/react';
 import { Spin } from 'antd';
 import './wine.css'
+
 import * as d3 from 'd3';
 const COLORS_SERIES = ['#e2282e', '#141446', '#7A77FF'];
 
@@ -33,10 +34,10 @@ const draw = (node, resultSet, chartType) => {
         .range(COLORS_SERIES)
 
     // Add X axis
-    const x = d3.scaleBand()
-        .range([0, width])
+
+    var x = d3.scaleLinear()
         .domain(resultSet.chartPivot().map(c => c.x))
-        .padding(0.3);
+        .range([0, width]);
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
@@ -45,6 +46,7 @@ const draw = (node, resultSet, chartType) => {
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
         .attr("transform", "rotate(-45)");
+
 
     // Add Y axis
     const y = d3.scaleLinear()
@@ -69,6 +71,7 @@ const draw = (node, resultSet, chartType) => {
         .attr("height", d => y(d[0]) - y(d[1]))
         .attr("width", x.bandwidth())
 
+
 }
 
 const barRender = ({ resultSet }) => (
@@ -76,7 +79,7 @@ const barRender = ({ resultSet }) => (
 )
 
 
-const API_URL = "http://evro-prod-analytics.herokuapp.com"; // change to your actual endpoint
+const API_URL = "https://evro-analytics.herokuapp.com"; // change to your actual endpoint
 
 let apiTokenPromise;
 
@@ -89,6 +92,7 @@ const cubejsApi = cubejs(() => {
 }, {
     apiUrl: `${API_URL}/cubejs-api/v1`
 });
+
 const renderChart = (Component) => ({ resultSet, error }) => (
     (resultSet && <Component resultSet={resultSet} />) ||
     (error && error.toString()) ||
@@ -102,20 +106,8 @@ const ChartRenderer = () => <QueryRenderer
         ],
         "timeDimensions": [],
         "dimensions": [
-            "Wine.country"
-        ],
-        "filters": [
-            {
-                "dimension": "Wine.country",
-                "operator": "set"
-            },
-            {
-                "dimension": "Wine.count",
-                "operator": "gt",
-                "values": [
-                    "100"
-                ]
-            }
+            "Wine.price",
+            "Wine.points"
         ]
     }}
     cubejsApi={cubejsApi}
